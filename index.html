@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ICT461 Course Registration</title>
+        <link rel="stylesheet" href="styles.css">
+
+    </head>
+    <body>
+        <main>
+<form>
+<label for="fullname">Full name</label>
+<input type="text" id="fullname" name="fullname" required>
+<span class="error" id="fullname-error"></span>
+
+<label for="studentID">Student ID</label>
+<input type="text" id="studentID" name="studentID" required>
+<span class="error" id="studentID-error"></span>
+
+<label for="programme">Programme</label>
+<select id="programme" name="programme" required>
+    <option value="">Select a programme</option>
+    <option value="bsc-cs">Bsc Computer Science</option>
+</select>
+<span class="error" id="programme-error"></span>
+
+<label for="courseId">Course fields</label>
+<select id="courseId" name="courseId" required>
+    <option value="">Select Courses:</option>
+    <option value="ICT-461">ICT-461 Web Systems and Technology</option>
+</select>
+<span class="error" id="courseId-error"></span>
+
+<button type="submit">Register</button>
+</form>
+<script>
+const nameInput = document.querySelector("#fullname");
+nameInput.addEventListener("blur", () => {
+    const errorSpan = document.querySelector("#fullname-error");
+    errorSpan.textContent = nameInput.value.trim() === "" ? "Full Name is required." : "";
+});
+const idInput = document.querySelector("#studentID");
+idInput.addEventListener("blur", () => {
+    const errorSpan = document.querySelector("#studentID-error");
+    errorSpan.textContent = idInput.value.trim() === "" ? "Student ID is required." : "";
+});
+const programmeSelect = document.querySelector("#programme");
+programmeSelect.addEventListener("change", () => {
+    const errorSpan = document.querySelector("#programme-error");
+    errorSpan.textContent = programmeSelect.value === "" ? "Select a programme." :"";
+});
+const courseSelect = document.querySelector("#courseId");
+courseSelect.addEventListener("change", () => {
+    const errorSpan = document.querySelector("#courseId-error");
+    errorSpan.textContent = courseSelect.value === "" ? "Select a course." :"";
+});
+</script>
+</main>
+</body>
+</html>
